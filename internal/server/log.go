@@ -26,6 +26,7 @@ func (c *Log) Append(record Record) (uint64, error) {
 	defer c.mu.Unlock()
 	record.Offset = uint64(len(c.records))
 	c.records = append(c.records, record)
+	fmt.Println(c.records)
 	return record.Offset, nil
 }
 
